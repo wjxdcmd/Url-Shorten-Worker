@@ -1,49 +1,49 @@
+# API 文档
 
+您可以通过调用 API 接口以编程方式生成短链接。
 
-# API documentation
+### API 调用地址
 
-Short links can be generated in a programmable way by calling the API interface
+自部署的 Cloudflare Worker 地址，例如：`https://url.dem0.workers.dev` 或您自绑定的域名。
 
-### API call address
+### 调用方法：HTTP POST
 
-Self-deployed CloudFlare Worker address, for example: https://url.dem0.workers.dev or a self-bound domain name
+**请求格式：JSON**
 
-### Calling method: HTTP POST Request format: JSON
-Example:
-````
+**示例：**
+
+```json
 {
   "cmd": "add",
   "url": "https://example.com",
   "key": "ilikeu",
   "password": "bodongshouqulveweifengci"
 }
-````
-
-### Request parameters:
-```
-cmd: add | del | qry
-url: The long link
-key: The short link
-password: Authentication
 ```
 
-### Example response (JSON):
+### 请求参数：
 
-````
+*   `cmd`: `add` (添加) | `del` (删除) | `qry` (查询)
+*   `url`: 长链接
+*   `key`: 短链接
+*   `password`: 认证密码
+
+### 示例响应 (JSON)：
+
+```json
 {
   "status": 200,
   "error": "",
   "key": "HcAx62",
   "url": ""
 }
-````
+```
 
-### Response parameters:
-````
-"status": 200 | 500
-"error": error details
-"key": The short link
-"url": The long link
-````
+### 响应参数：
 
-"status": 200 means success, other code means failed.
+*   `status`: `200` (成功) | `500` (失败)
+*   `error`: 错误详情
+*   `key`: 短链接
+*   `url`: 长链接
+
+`status` 为 `200` 表示成功，其他代码表示失败。
