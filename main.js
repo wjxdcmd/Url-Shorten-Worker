@@ -19,7 +19,7 @@ let buildValueItemFunc = buildValueTxt;
 function shorturl() {
   // 检查长链接输入是否为空
   if (document.querySelector("#longURL").value === "") {
-    alert("链接不能为空！"); // Url cannot be empty!
+    alert("原始链接不能为空！"); // Url cannot be empty!
     return;
   }
   
